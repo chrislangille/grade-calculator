@@ -1,35 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [courses, setCourses] = useState([
+    { courseName: "", gradePercent: "", weight: "" },
+  ]);
+  const [overallGrade, setOverallGrade] = useState(null);
+
+  const handleAddCourse = () => {
+    setCourses([...courses, { courseName: "", gradePercent: "", weight: "" }]);
+  };
+
+  const handleCourseChange = (index, field, value) => {
+    const updatedCourses = [...courses];
+    updatedCourses[index][field] = value;
+    setCourses(updatedCourses);
+  };
+
+  const calculateOverallGrade = () => {
+    // Calculate the overall grade based on your specific algorithm
+    // You can implement your own logic here.
+    // For simplicity, let's assume all weights are equal for now.
+    const totalWeight = courses.reduce(
+      (acc, course) => acc + parseFloat(course.weight || 0),
+      0
+    );
+    const totalGrade = courses.reduce(
+      (acc, course) =>
+        acc +
+        parseFloat(course.gradePercent || 0) * parseFloat(course.weight || 0),
+      0
+    );
+    setOverallGrade((totalGrade / totalWeight).toFixed(2));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <h1>Grade Calculator</h1>
+      {courses.map((course, index) => (
+        <div key={index} className="course-row">
+          <input
+            type="text"
+            placeholder="Course Name"
+            value={course.courseName}
+            onChange={(e) =>
+              handleCourseChange(index, "courseName", e.target.value)
+            }
+          />
+          <input
+            type="number"
+            placeholder="Grade (%)"
+            value={course.gradePercent}
+            onChange={(e) =>
+              handleCourseChange(index, "gradePercent", e.target.value)
+            }
+          />
+          <input
+            type="number"
+            placeholder="Weight (%)"
+            value={course.weight}
+            onChange={(e) =>
+              handleCourseChange(index, "weight", e.target.value)
+            }
+          />
+        </div>
+      ))}
+      <button onClick={handleAddCourse}>+</button>
+      <button onClick={calculateOverallGrade}>Calculate</button>
+      {overallGrade && <p>Your Overall Grade: {overallGrade}</p>}
+    </div>
+  );
 }
 
-export default App
+export default App;
