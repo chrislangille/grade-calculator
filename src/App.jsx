@@ -2,29 +2,42 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [courses, setCourses] = useState([
-    { courseName: "", gradePercent: "", weight: "" },
+  const [assignments, setAssignments] = useState([
+    { assignName: "", gradePercent: "", weight: "" },
   ]);
 
   const [overallGrade, setOverallGrade] = useState(null);
 
-  const handleAddCourse = () => {
-    setCourses([...courses, { courseName: "", gradePercent: "", weight: "" }]);
+  // Add a new assignment
+  const handleAddAssignment = () => {
+    setAssignments([
+      ...assignments,
+      { assignName: "", gradePercent: "", weight: "" },
+    ]);
   };
 
-  const handleCourseChange = (index, field, value) => {
-    const updatedCourses = [...courses];
-    updatedCourses[index][field] = value;
-    setCourses(updatedCourses);
+  // Remove the last assignment added
+  const handleRemoveAssignment = () => {
+    if (assignments.length > 1) {
+      const updatedAssignments = [...assignments];
+      updatedAssignments.pop();
+      setAssignments(updatedAssignments);
+    }
+  };
+
+  const handleAssignmentChange = (index, field, value) => {
+    const updatedAssignments = [...assignments];
+    updatedAssignments[index][field] = value;
+    setAssignments(updatedAssignments);
   };
 
   const calculateOverallGrade = () => {
     // Calculate the overall grade based
-    const totalWeight = courses.reduce(
+    const totalWeight = assignments.reduce(
       (acc, course) => acc + parseFloat(course.weight || 0),
       0
     );
-    const totalGrade = courses.reduce(
+    const totalGrade = assignments.reduce(
       (acc, course) =>
         acc +
         parseFloat(course.gradePercent || 0) * parseFloat(course.weight || 0),
@@ -33,17 +46,24 @@ function App() {
     setOverallGrade((totalGrade / totalWeight).toFixed(2));
   };
 
+  // Essentially refresh the page
+  const handleRestart = () => {
+    // Reset the assignments and overallGrade states
+    setAssignments([{ assignName: "", gradePercent: "", weight: "" }]);
+    setOverallGrade(null);
+  };
+
   return (
     <div className="App">
       <h1>Grade Calculator</h1>
-      {courses.map((course, index) => (
+      {assignments.map((course, index) => (
         <div key={index} className="course-row">
           <input
             type="text"
-            placeholder="Course Name"
-            value={course.courseName}
+            placeholder="Assignment Name"
+            value={course.assignName}
             onChange={(e) =>
-              handleCourseChange(index, "courseName", e.target.value)
+              handleAssignmentChange(index, "assignName", e.target.value)
             }
           />
           <input
@@ -51,7 +71,7 @@ function App() {
             placeholder="Grade (%)"
             value={course.gradePercent}
             onChange={(e) =>
-              handleCourseChange(index, "gradePercent", e.target.value)
+              handleAssignmentChange(index, "gradePercent", e.target.value)
             }
           />
           <input
@@ -59,13 +79,15 @@ function App() {
             placeholder="Weight (%)"
             value={course.weight}
             onChange={(e) =>
-              handleCourseChange(index, "weight", e.target.value)
+              handleAssignmentChange(index, "weight", e.target.value)
             }
           />
         </div>
       ))}
-      <button onClick={handleAddCourse}>+</button>
+      <button onClick={handleAddAssignment}>+</button>
+      <button onClick={handleRemoveAssignment}>-</button>
       <button onClick={calculateOverallGrade}>Calculate</button>
+      <button onClick={handleRestart}>Restart</button>
       {overallGrade && <p>Your Overall Grade: {overallGrade}</p>}
     </div>
   );
