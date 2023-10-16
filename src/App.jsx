@@ -1,12 +1,11 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
   const [courses, setCourses] = useState([
     { courseName: "", gradePercent: "", weight: "" },
   ]);
+
   const [overallGrade, setOverallGrade] = useState(null);
 
   const handleAddCourse = () => {
@@ -20,9 +19,7 @@ function App() {
   };
 
   const calculateOverallGrade = () => {
-    // Calculate the overall grade based on your specific algorithm
-    // You can implement your own logic here.
-    // For simplicity, let's assume all weights are equal for now.
+    // Calculate the overall grade based
     const totalWeight = courses.reduce(
       (acc, course) => acc + parseFloat(course.weight || 0),
       0
