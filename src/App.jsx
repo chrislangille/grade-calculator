@@ -7,6 +7,7 @@ function App() {
   ]);
 
   const [overallGrade, setOverallGrade] = useState(null);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   // Add a new assignment
   const handleAddAssignment = () => {
@@ -43,7 +44,16 @@ function App() {
         parseFloat(course.gradePercent || 0) * parseFloat(course.weight || 0),
       0
     );
-    setOverallGrade((totalGrade / totalWeight).toFixed(2));
+
+    const calculatedGrade = (totalGrade / totalWeight).toFixed(2);
+
+    if (isNaN(calculatedGrade)) {
+      setOverallGrade(null);
+      setShowErrorMessage(true);
+    } else {
+      setOverallGrade(calculatedGrade);
+      setShowErrorMessage(false);
+    }
   };
 
   // Essentially refresh the page
@@ -51,6 +61,8 @@ function App() {
     // Reset the assignments and overallGrade states
     setAssignments([{ assignName: "", gradePercent: "", weight: "" }]);
     setOverallGrade(null);
+    // Hide the error message if present
+    setShowErrorMessage(false);
   };
 
   return (
@@ -88,7 +100,11 @@ function App() {
       <button onClick={handleRemoveAssignment}>-</button>
       <button onClick={calculateOverallGrade}>Calculate</button>
       <button onClick={handleRestart}>Restart</button>
-      {overallGrade && <p>Your Overall Grade: {overallGrade}</p>}
+      {showErrorMessage ? (
+        <p>Please check your input.</p>
+      ) : (
+        overallGrade !== null && <p>Your Overall Grade: {overallGrade}</p>
+      )}
     </div>
   );
 }
