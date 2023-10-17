@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
+// Main application
 function App() {
   const [assignments, setAssignments] = useState([
     { assignName: "", gradePercent: "", weight: "" },
@@ -103,10 +104,44 @@ function App() {
       {showErrorMessage ? (
         <p>Please check your input.</p>
       ) : (
-        overallGrade !== null && <p>Your Overall Grade: {overallGrade}</p>
+        overallGrade !== null && (
+          <div>
+            <p>Your Overall Grade: {overallGrade} %</p>
+            <p>Your Letter Grade: {calculateLetterGrade(overallGrade)}</p>
+          </div>
+        )
       )}
     </div>
   );
+}
+
+// Function to calculate the letter grade given the overallGrade
+function calculateLetterGrade(overallGrade) {
+  if (overallGrade >= 90 && overallGrade <= 100) {
+    return "A+";
+  } else if (overallGrade >= 85 && overallGrade <= 89) {
+    return "A";
+  } else if (overallGrade >= 80 && overallGrade <= 84) {
+    return "A-";
+  } else if (overallGrade >= 77 && overallGrade <= 79) {
+    return "B+";
+  } else if (overallGrade >= 73 && overallGrade <= 76) {
+    return "B";
+  } else if (overallGrade >= 70 && overallGrade <= 72) {
+    return "B-";
+  } else if (overallGrade >= 65 && overallGrade <= 69) {
+    return "C+";
+  } else if (overallGrade >= 60 && overallGrade <= 64) {
+    return "C";
+  } else if (overallGrade >= 55 && overallGrade <= 59) {
+    return "C-";
+  } else if (overallGrade >= 50 && overallGrade <= 54) {
+    return "D";
+  } else if (overallGrade >= 0 && overallGrade <= 49) {
+    return "F";
+  } else {
+    return "N/A";
+  }
 }
 
 export default App;
