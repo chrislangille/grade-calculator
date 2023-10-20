@@ -125,12 +125,12 @@ function App() {
       <button onClick={calculateOverallGrade}>Calculate</button>
       <button onClick={handleRestart}>Restart</button>
       {showErrorMessage ? (
-        <p>Please check your input.</p>
+        <p className="output-paragraph">Please check your input.</p>
       ) : (
         overallGrade !== null && (
           <div>
-            <p>Your Overall Grade: {overallGrade} %</p>
-            <p>Your Letter Grade: {calculateLetterGrade(overallGrade)}</p>
+            <p className="output-paragraph">Your Overall Grade: {overallGrade} % test</p>
+            <p className="output-paragraph">Your Letter Grade: {calculateLetterGrade(overallGrade)}</p>
           </div>
         )
       )}
