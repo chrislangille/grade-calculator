@@ -82,6 +82,7 @@ function App() {
     // Display loading screen
     return (
       <div className="App">
+        <div className="background-animation"></div>
         <h1>Grade Calculator</h1>
       </div>
     );

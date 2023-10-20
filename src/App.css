@@ -44,16 +44,25 @@ button {
 /* Input box css */
 .course-row input {
   border: none;
-  border-bottom: 2px solid #333; /* Add a bottom border for a modern look */
-  padding: 10px; /* Add some padding for spacing */
-  font-size: 16px; /* Adjust the font size as needed */
+  background-color: white;
+  border-bottom: 2px solid #d3d3d3;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #4d4d4d;
+}
+
+/* Title styling */
+h1 {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #ffc9c9;
 }
 
 /* Style the placeholder text as a small header */
 .course-row input::placeholder {
-  font-size: 12px; /* Adjust the font size for the placeholder text */
-  font-weight: bold; /* Make the placeholder text bold */
-  color: #777; /* Adjust the color of the placeholder text */
+  font-size: 12px;
+  font-weight: bold;
+  color: #4d4d4d;
 }
 
 /* Add a new CSS class for the animation */
@@ -88,17 +97,17 @@ button {
 
 @keyframes gradient {
   0% {
-    background: linear-gradient(45deg, #ff5733, #6a0572, #ff5733, #6a0572);
+    background: linear-gradient(45deg, #2c3e50, #e74c3c, #2c3e50, #e74c3c);
     background-size: 400% 400%;
     background-position: 0% 50%;
   }
   50% {
-    background: linear-gradient(45deg, #ff5733, #6a0572, #ff5733, #6a0572);
+    background: linear-gradient(45deg, #2c3e50, #e74c3c, #2c3e50, #e74c3c);
     background-size: 400% 400%;
     background-position: 100% 50%;
   }
   100% {
-    background: linear-gradient(45deg, #ff5733, #6a0572, #ff5733, #6a0572);
+    background: linear-gradient(45deg, #2c3e50, #e74c3c, #2c3e50, #e74c3c);
     background-size: 400% 400%;
     background-position: 0% 50%;
   }
