@@ -40,3 +40,66 @@ button {
   margin-top: 1.5em;
   margin-left: 0.5em;
 }
+
+/* Input box css */
+.course-row input {
+  border: none;
+  border-bottom: 2px solid #333; /* Add a bottom border for a modern look */
+  padding: 10px; /* Add some padding for spacing */
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+/* Style the placeholder text as a small header */
+.course-row input::placeholder {
+  font-size: 12px; /* Adjust the font size for the placeholder text */
+  font-weight: bold; /* Make the placeholder text bold */
+  color: #777; /* Adjust the color of the placeholder text */
+}
+
+/* Add a new CSS class for the animation */
+@keyframes expand-animation {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Apply the animation to the course-row class */
+.course-row {
+  animation: expand-animation 0.3s ease-in-out; /* You can adjust the duration and easing as needed */
+}
+
+button {
+  animation: expand-animation 0.3s ease-in-out;
+}
+
+/* Animated background testing */
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background: linear-gradient(45deg, #ff5733, #6a0572, #ff5733, #6a0572);
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background: linear-gradient(45deg, #ff5733, #6a0572, #ff5733, #6a0572);
+    background-size: 400% 400%;
+    background-position: 100% 50%;
+  }
+  100% {
+    background: linear-gradient(45deg, #ff5733, #6a0572, #ff5733, #6a0572);
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+  }
+}

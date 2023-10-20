@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import calculateLetterGrade from "./gradeUtils";
 
 // Main application
 function App() {
+  // Loading state
+  const [loading, setLoading] = useState(true);
+
   const [assignments, setAssignments] = useState([
     { assignName: "", gradePercent: "", weight: "" },
   ]);
@@ -67,8 +70,26 @@ function App() {
     setShowErrorMessage(false);
   };
 
+  // Simulate loading delay with useEffect
+  useEffect(() => {
+    setTimeout(() => {
+      // Set loading to false after a delay (simulating loading time)
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    // Display loading screen
+    return (
+      <div className="App">
+        <h1>Grade Calculator</h1>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
+      <div className="background-animation"></div>
       <h1>Grade Calculator</h1>
       {assignments.map((course, index) => (
         <div key={index} className="course-row">
