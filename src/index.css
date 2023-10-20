@@ -48,13 +48,14 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-width: 0.15em;
-  border-color: #ffc964;
+  border-width: 0.01em;
+  box-shadow: 0 0 0 2px #e3a5a5;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+button:active {
+  box-shadow: 0 0 0 2px #f6b2b2;
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {

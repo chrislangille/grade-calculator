@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+import calculateLetterGrade from "./gradeUtils";
 
 // Main application
 function App() {
+  // Loading state
+  const [loading, setLoading] = useState(true);
+
   const [assignments, setAssignments] = useState([
     { assignName: "", gradePercent: "", weight: "" },
   ]);
@@ -66,8 +70,27 @@ function App() {
     setShowErrorMessage(false);
   };
 
+  // Simulate loading delay with useEffect
+  useEffect(() => {
+    setTimeout(() => {
+      // Set loading to false after a delay (simulating loading time)
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    // Display loading screen
+    return (
+      <div className="App">
+        <div className="background-animation"></div>
+        <h1>Grade Calculator</h1>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
+      <div className="background-animation"></div>
       <h1>Grade Calculator</h1>
       {assignments.map((course, index) => (
         <div key={index} className="course-row">
@@ -102,46 +125,17 @@ function App() {
       <button onClick={calculateOverallGrade}>Calculate</button>
       <button onClick={handleRestart}>Restart</button>
       {showErrorMessage ? (
-        <p>Please check your input.</p>
+        <p className="output-paragraph">Please check your input.</p>
       ) : (
         overallGrade !== null && (
           <div>
-            <p>Your Overall Grade: {overallGrade} %</p>
-            <p>Your Letter Grade: {calculateLetterGrade(overallGrade)}</p>
+            <p className="output-paragraph">Your Overall Grade: {overallGrade} % test</p>
+            <p className="output-paragraph">Your Letter Grade: {calculateLetterGrade(overallGrade)}</p>
           </div>
         )
       )}
     </div>
   );
-}
-
-// Function to calculate the letter grade given the overallGrade
-function calculateLetterGrade(overallGrade) {
-  if (overallGrade >= 90 && overallGrade <= 100) {
-    return "A+";
-  } else if (overallGrade >= 85 && overallGrade <= 89) {
-    return "A";
-  } else if (overallGrade >= 80 && overallGrade <= 84) {
-    return "A-";
-  } else if (overallGrade >= 77 && overallGrade <= 79) {
-    return "B+";
-  } else if (overallGrade >= 73 && overallGrade <= 76) {
-    return "B";
-  } else if (overallGrade >= 70 && overallGrade <= 72) {
-    return "B-";
-  } else if (overallGrade >= 65 && overallGrade <= 69) {
-    return "C+";
-  } else if (overallGrade >= 60 && overallGrade <= 64) {
-    return "C";
-  } else if (overallGrade >= 55 && overallGrade <= 59) {
-    return "C-";
-  } else if (overallGrade >= 50 && overallGrade <= 54) {
-    return "D";
-  } else if (overallGrade >= 0 && overallGrade <= 49) {
-    return "F";
-  } else {
-    return "N/A";
-  }
 }
 
 export default App;
