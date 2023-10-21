@@ -123,14 +123,18 @@ function App() {
       <button onClick={handleAddAssignment}>+</button>
       <button onClick={handleRemoveAssignment}>-</button>
       <button onClick={calculateOverallGrade}>Calculate</button>
-      <button onClick={handleRestart}>Restart</button>
+      <button onClick={handleRestart}>Reset</button>
       {showErrorMessage ? (
         <p className="output-paragraph">Please check your input.</p>
       ) : (
         overallGrade !== null && (
           <div>
-            <p className="output-paragraph">Your Overall Grade: {overallGrade} % test</p>
-            <p className="output-paragraph">Your Letter Grade: {calculateLetterGrade(overallGrade)}</p>
+            <p className="output-paragraph">
+              Your Overall Grade: {overallGrade} %
+            </p>
+            <p className="output-paragraph">
+              Your Letter Grade: {calculateLetterGrade(overallGrade)}
+            </p>
           </div>
         )
       )}
