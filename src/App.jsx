@@ -41,13 +41,13 @@ function App() {
     // Calculate the overall grade based
     const totalWeight = assignments.reduce(
       (acc, course) => acc + parseFloat(course.weight || 0),
-      0
+      0,
     );
     const totalGrade = assignments.reduce(
       (acc, course) =>
         acc +
         parseFloat(course.gradePercent || 0) * parseFloat(course.weight || 0),
-      0
+      0,
     );
 
     const calculatedGrade = (totalGrade / totalWeight).toFixed(2);

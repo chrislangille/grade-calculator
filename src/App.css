@@ -18,11 +18,26 @@
     color: #888;
 }
 
+.App {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: max-content;
+    min-height: 80vh;
+
+    background-color: white;
+    border-width: 10em;
+    border-radius: 20px;
+
+    border: 5px solid #f9f1f1;
+}
+
 /* Title styling */
 h1 {
-    /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
     color: var(--Large-color);
     font-weight: bold;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 /* Output paragraph styling */
@@ -45,6 +60,7 @@ h1 {
     margin-bottom: 1em;
     color: var(--Large-color);
 }
+
 .course-row input::placeholder {
     font-size: 15px;
     font-weight: bold;
@@ -96,17 +112,17 @@ a {
 
 @keyframes gradient {
     0% {
-        background: linear-gradient(45deg, #ffffff, #d3d3d3, #ffffff, #d3d3d3);
+        background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
         background-size: 200% 200%;
         background-position: 0% 0%;
     }
     50% {
-        background: linear-gradient(45deg, #ffffff, #d3d3d3, #ffffff, #d3d3d3);
+        background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
         background-size: 200% 200%;
         background-position: 100% 100%;
     }
     100% {
-        background: linear-gradient(45deg, #ffffff, #d3d3d3, #ffffff, #d3d3d3);
+        background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
         background-size: 200% 200%;
         background-position: 0% 0%;
     }

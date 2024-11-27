@@ -14,27 +14,6 @@
     -webkit-text-size-adjust: 100%;
 }
 
-body {
-    margin-top: 2.5em;
-    margin-left: auto;
-    margin-right: auto;
-
-    width: max-content;
-    height: 80vh;
-
-    min-width: 320px;
-    min-height: 60%;
-
-    display: flex;
-    align-items: start;
-
-    background-color: white;
-    border-width: 10em;
-    border-radius: 20px;
-
-    border: 5px solid #f9f1f1;
-}
-
 h1 {
     font-size: 5.2em;
     line-height: 1.1;
@@ -62,7 +41,10 @@ button:active {
     box-shadow: 0 0 0 2px black;
 }
 
-@media (prefers-color-scheme: light) {
+input:focus {
+}
+
+/* @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
         background-color: #ffffff;
@@ -81,4 +63,4 @@ button:active {
     a {
         -webkit-tap-highlight-color: transparent;
     }
-}
+} */
