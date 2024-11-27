@@ -12,14 +12,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
-
-    /* Color variables*/
-    --Large-color: #3e885b;
-    --Medium-color: #85bda6;
-    --Small-color: #c0d7bb;
-}
-input {
-    border-radius: 10px;
 }
 
 body {
@@ -67,7 +59,7 @@ button:hover {
 }
 
 button:active {
-    box-shadow: 0 0 0 2px #f6b2b2;
+    box-shadow: 0 0 0 2px black;
 }
 
 @media (prefers-color-scheme: light) {

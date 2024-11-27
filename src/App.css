@@ -4,10 +4,10 @@
     padding: 2rem;
     text-align: center;
 
-    /* Color variables*/
-    --Large-color: #3e885b;
-    --Medium-color: #85bda6;
-    --Small-color: #c0d7bb;
+    /* Color variables */
+    --Large-color: #304c89;
+    --Medium-color: #648de5;
+    --Small-color: #9eb7e5;
 }
 
 .card {
@@ -38,15 +38,17 @@ h1 {
     font-size: 15px;
     font-weight: bold;
     background-color: white;
-    border: 2px solid var(--Small-color);
+    border: 3px solid var(--Medium-color);
+    border-radius: 10px;
     padding: 20px;
     margin-left: 0.5em;
+    margin-bottom: 1em;
     color: var(--Large-color);
 }
 .course-row input::placeholder {
     font-size: 15px;
     font-weight: bold;
-    color: var(--Medium-color);
+    color: var(--Small-color);
 }
 
 /* Add a new CSS class for the animation */
