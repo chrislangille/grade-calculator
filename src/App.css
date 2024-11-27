@@ -1,78 +1,74 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+
+    /* Color variables*/
+    --Large-color: #3e885b;
+    --Medium-color: #85bda6;
+    --Small-color: #c0d7bb;
 }
 
 .card {
-  padding: 2em;
+    padding: 2em;
 }
 
 .read-the-docs {
-  color: #888;
-}
-
-input {
-  padding: 0.3em;
-  margin-left: 0.5em;
-  margin-bottom: 1em;
-  width: 25%;
-  height: 25%;
-}
-
-/* Input box css */
-.course-row input {
-  border: none;
-  background-color: white;
-  border-bottom: 2px solid #d3d3d3;
-  padding: 10px;
-  font-size: 13px;
-  font-weight: bold;
-  color: #4d4d4d;
+    color: #888;
 }
 
 /* Title styling */
 h1 {
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  color: #ffc9c9;
+    /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    color: var(--Large-color);
+    font-weight: bold;
 }
 
 /* Output paragraph styling */
 .output-paragraph {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffc9c9;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the placeholder text as a small header */
+/* Input box css */
+.course-row input {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid var(--Small-color);
+    padding: 20px;
+    margin-left: 0.5em;
+    color: var(--Large-color);
+}
 .course-row input::placeholder {
-  font-size: 12px;
-  font-weight: bold;
-  color: #4d4d4d;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--Medium-color);
 }
 
 /* Add a new CSS class for the animation */
 @keyframes expand-animation {
-  0% {
-    transform: scaleY(0);
-  }
-  100% {
-    transform: scaleY(1);
-  }
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
 }
 
 /* Apply the animation to the course-row class */
 .course-row {
-  animation: expand-animation 0.3s ease-in-out; /* You can adjust the duration and easing as needed */
+    animation: expand-animation 0.3s ease-in-out; /* You can adjust the duration and easing as needed */
 }
 
 button {
-  color: white;
-  animation: expand-animation 0.3s ease-in-out;
-  margin-top: 1.5em;
-  margin-left: 0.5em;
+    color: white;
+    animation: expand-animation 0.3s ease-in-out;
+    margin-top: 1.5em;
+    margin-left: 0.5em;
 }
 
 input,
@@ -80,36 +76,36 @@ textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Animated background*/
 /* Animated background testing */
 .background-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  /* Speed of the animation */
-  animation: gradient 7s linear infinite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Speed of the animation */
+    animation: gradient 7s linear infinite;
 }
 
 @keyframes gradient {
-  0% {
-    background: linear-gradient(45deg, #2c3e50, #79342d, #2c3e50, #79342d);
-    background-size: 200% 200%;
-    background-position: 0% 0%;
-  }
-  50% {
-    background: linear-gradient(45deg, #2c3e50, #79342d, #2c3e50, #79342d);
-    background-size: 200% 200%;
-    background-position: 100% 100%;
-  }
-  100% {
-    background: linear-gradient(45deg, #2c3e50, #79342d, #2c3e50, #79342d);
-    background-size: 200% 200%;
-    background-position: 0% 0%;
-  }
+    0% {
+        background: linear-gradient(45deg, #ffffff, #d3d3d3, #ffffff, #d3d3d3);
+        background-size: 200% 200%;
+        background-position: 0% 0%;
+    }
+    50% {
+        background: linear-gradient(45deg, #ffffff, #d3d3d3, #ffffff, #d3d3d3);
+        background-size: 200% 200%;
+        background-position: 100% 100%;
+    }
+    100% {
+        background: linear-gradient(45deg, #ffffff, #d3d3d3, #ffffff, #d3d3d3);
+        background-size: 200% 200%;
+        background-position: 0% 0%;
+    }
 }
