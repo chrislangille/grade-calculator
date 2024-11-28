@@ -1,129 +1,194 @@
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+        #root {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
 
-    /* Color variables */
-    --Large-color: #304c89;
-    --Medium-color: #648de5;
-    --Small-color: #9eb7e5;
-}
+            /* Color variables */
+            --Large-color: #304c89;
+            --Medium-color: #648de5;
+            --Small-color: #9eb7e5;
+        }
 
-.card {
-    padding: 2em;
-}
+        button {
+            border-radius: 8px;
+            border: 1px solid transparent;
+            padding: 0.6em 1em;
+            font-size: 1em;
+            font-weight: 500;
+            font-family: inherit;
+            background-color: var(--Large-color);
+            cursor: pointer;
+            transition: border-color 0.25s;
+        }
+        button:hover {
+            border-width: 0.01em;
+            box-shadow: 0 0 0 2px var(--hover-color);
+        }
 
-.read-the-docs {
-    color: #888;
-}
+        button:active {
+            box-shadow: 0 0 0 2px black;
+        }
+        .card {
+            padding: 2em;
+        }
 
-.App {
-    margin-left: auto;
-    margin-right: auto;
+        .read-the-docs {
+            color: #888;
+        }
 
-    width: max-content;
-    min-height: 80vh;
+        .Calc {
+            margin-left: auto;
+            margin-right: auto;
 
-    background-color: white;
-    border-width: 10em;
-    border-radius: 20px;
+            width: max-content;
+            min-height: 80vh;
 
-    border: 5px solid #f9f1f1;
-}
+            background-color: white;
+            border-width: 10em;
+            border-radius: 20px;
 
-/* Title styling */
-h1 {
-    color: var(--Large-color);
-    font-weight: bold;
-    margin-left: 1em;
-    margin-right: 1em;
-}
+            border: 5px solid #f9f1f1;
+        }
+        .App {
+            min-height: 100vh;
+        }
 
-/* Output paragraph styling */
-.output-paragraph {
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none; /* For WebKit browsers (Chrome, Safari, etc.) */
+        }
 
-/* Input box css */
-.course-row input {
-    font-size: 15px;
-    font-weight: bold;
-    background-color: white;
-    border: 3px solid var(--Medium-color);
-    border-radius: 10px;
-    padding: 20px;
-    margin-left: 0.5em;
-    margin-bottom: 1em;
-    color: var(--Large-color);
-}
+        .footer {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 20px;
+            width: 100%;
+            margin-top: auto;
+        }
 
-.course-row input::placeholder {
-    font-size: 15px;
-    font-weight: bold;
-    color: var(--Small-color);
-}
+        .footer p {
+            display: block;
+        }
+        .footer div {
+            display: block;
+        }
 
-/* Add a new CSS class for the animation */
-@keyframes expand-animation {
-    0% {
-        transform: scaleY(0);
+        .social-icons {
+            margin-left: 0.5em;
+        }
+
+        /* Title styling */
+        h1 {
+            color: var(--Large-color);
+            font-weight: bold;
+            font-size: 5.2em;
+            margin-left: 1em;
+            margin-right: 1em;
+            margin-bottom: 0;
+        }
+
+        p {
+            color: var(--Medium-color);
+            font-weight: bold;
+        }
+        .disclaimer {
+            margin-top: 0;
+        }
+
+        b {
+            color: var(--Large-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--Large-color);
+        }
+
+        /* Output paragraph styling */
+        .output-paragraph {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Input box css */
+        .course-row input {
+            font-size: 15px;
+            font-weight: bold;
+            background-color: white;
+            border: 3px solid var(--Medium-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-left: 0.5em;
+            margin-bottom: 1em;
+            color: var(--Large-color);
+        }
+
+        .course-row input::placeholder {
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--Small-color);
+        }
+
+        /* Add a new CSS class for the animation */
+        @keyframes expand-animation {
+            0% {
+                transform: scaleY(0);
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+
+        /* Apply the animation to the course-row class */
+        .course-row {
+            animation: expand-animation 0.3s ease-in-out; /* You can adjust the duration and easing as needed */
+        }
+
+        button {
+            color: white;
+            animation: expand-animation 0.3s ease-in-out;
+            margin-top: 1.5em;
+            margin-left: 0.5em;
+        }
+
+        input,
+        textarea,
+        button,
+        select,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Animated background*/
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Speed of the animation */
+            animation: gradient 7s linear infinite;
+        }
+        @keyframes gradient {
+            0% {
+                background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
+                background-size: 200% 200%;
+                background-position: 0% 0%;
+            }
+            50% {
+                background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
+                background-size: 200% 200%;
+                background-position: 100% 100%;
+            }
+            100% {
+                background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
+                background-size: 200% 200%;
+                background-position: 0% 0%;
+            }
+        }
     }
-    100% {
-        transform: scaleY(1);
-    }
-}
-
-/* Apply the animation to the course-row class */
-.course-row {
-    animation: expand-animation 0.3s ease-in-out; /* You can adjust the duration and easing as needed */
-}
-
-button {
-    color: white;
-    animation: expand-animation 0.3s ease-in-out;
-    margin-top: 1.5em;
-    margin-left: 0.5em;
-}
-
-input,
-textarea,
-button,
-select,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Animated background*/
-/* Animated background testing */
-.background-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    /* Speed of the animation */
-    animation: gradient 7s linear infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
-        background-size: 200% 200%;
-        background-position: 0% 0%;
-    }
-    50% {
-        background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
-        background-size: 200% 200%;
-        background-position: 100% 100%;
-    }
-    100% {
-        background: linear-gradient(45deg, #e0e0e0, #d3d3d3, #e0e0e0, #d3d3d3);
-        background-size: 200% 200%;
-        background-position: 0% 0%;
-    }
-}

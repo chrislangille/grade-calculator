@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import calculateLetterGrade from "./gradeUtils";
+import { FaLinkedin, FaGithub } from "react-icons/fa6";
 
 // Main application
 function App() {
@@ -90,54 +91,83 @@ function App() {
 
   return (
     <div className="App">
-      <div className="background-animation"></div>
-      <h1>Grade Calculator</h1>
-      {assignments.map((course, index) => (
-        <div key={index} className="course-row">
-          <input
-            type="text"
-            placeholder="Assignment Name"
-            value={course.assignName}
-            onChange={(e) =>
-              handleAssignmentChange(index, "assignName", e.target.value)
-            }
-          />
-          <input
-            type="number"
-            placeholder="Grade (%)"
-            value={course.gradePercent}
-            onChange={(e) =>
-              handleAssignmentChange(index, "gradePercent", e.target.value)
-            }
-          />
-          <input
-            type="number"
-            placeholder="Weight (%)"
-            value={course.weight}
-            onChange={(e) =>
-              handleAssignmentChange(index, "weight", e.target.value)
-            }
-          />
-        </div>
-      ))}
-      <button onClick={handleAddAssignment}>+</button>
-      <button onClick={handleRemoveAssignment}>-</button>
-      <button onClick={calculateOverallGrade}>Calculate</button>
-      <button onClick={handleRestart}>Reset</button>
-      {showErrorMessage ? (
-        <p className="output-paragraph">Please check your input.</p>
-      ) : (
-        overallGrade !== null && (
-          <div>
-            <p className="output-paragraph">
-              Your Overall Grade: {overallGrade} %
-            </p>
-            <p className="output-paragraph">
-              Your Letter Grade: {calculateLetterGrade(overallGrade)}
-            </p>
+      <div className="Calc">
+        <div className="background-animation"></div>
+        <h1>Grade Calculator</h1>
+        <p className="disclaimer">
+          Based on the{" "}
+          <a href="https://www.dal.ca/campus_life/academic-support/grades-and-student-records/grade-scale-and-definitions.html">
+            Dalhousie University
+          </a>{" "}
+          grade scale
+        </p>
+        {assignments.map((course, index) => (
+          <div key={index} className="course-row">
+            <input
+              type="text"
+              placeholder="Assignment Name"
+              value={course.assignName}
+              onChange={(e) =>
+                handleAssignmentChange(index, "assignName", e.target.value)
+              }
+            />
+            <input
+              type="number"
+              placeholder="Grade (%)"
+              value={course.gradePercent}
+              onChange={(e) =>
+                handleAssignmentChange(index, "gradePercent", e.target.value)
+              }
+            />
+            <input
+              type="number"
+              placeholder="Weight (%)"
+              value={course.weight}
+              onChange={(e) =>
+                handleAssignmentChange(index, "weight", e.target.value)
+              }
+            />
           </div>
-        )
-      )}
+        ))}
+        <button onClick={handleAddAssignment}>+</button>
+        <button onClick={handleRemoveAssignment}>-</button>
+        <button onClick={calculateOverallGrade}>Calculate</button>
+        <button onClick={handleRestart}>Reset</button>
+        {showErrorMessage ? (
+          <p className="output-paragraph">Please check your input.</p>
+        ) : (
+          overallGrade !== null && (
+            <div>
+              <p className="output-paragraph">
+                Your Overall Grade: {overallGrade} %
+              </p>
+              <p className="output-paragraph">
+                Your Letter Grade: {calculateLetterGrade(overallGrade)}
+              </p>
+            </div>
+          )
+        )}
+      </div>
+
+      <footer className="footer">
+        <p>© 2024 Grade Calculator. All Rights Reserved.</p>
+        <div>
+          <a
+            className="social-icons"
+            href="https://www.linkedin.com/in/chris-langille-5943b8235/"
+            target="_blank"
+          >
+            <FaLinkedin size={30} color="#648de5" />
+          </a>
+          <a
+            className="social-icons"
+            href="https://github.com/chrislangille"
+            target="_blank"
+          >
+            <FaGithub size={30} color="#648de5" />
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
